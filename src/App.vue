@@ -1,16 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h1 class="container ps-5">Formulario</h1>
+  <FormularioRegistro @submit-form="submitForm" />
+  <TablaRegistro :users="users" />
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import {reactive} from 'vue'
+import FormularioRegistro from './components/FormularioRegistro.vue'
+import TablaRegistro from './components/TablaRegistro.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+const users = reactive([])
+
+const submitForm = (form) => {
+  users.push(form)
 }
 </script>
 
